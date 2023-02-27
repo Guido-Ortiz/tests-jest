@@ -1,31 +1,3 @@
-// function Booking(name, email, checkin, checkout, discount, room){
-//     this.name = name;
-//     this.email = email;
-//     this.checkin = checkin;
-//     this.checkout = checkout;
-//     this.discount = discount;
-//     this.room = room;
-// }
-
-// Booking.prototype.getFee = function(){
-//     let rate = this.room.rate - (this.room.rate * this.room.discount) / 100
-//     return rate - (rate * this.discount) / 100
-// }
-
-// function Room(name, bookings, rate, discount){
-//     this.name = name;
-//     this.bookings = bookings;
-//     this.rate = rate;
-//     this.discount = discount;
-// }
-
-// module.exports = {
-//     Booking,
-//     Room
-// }
-
-
-
 class Room {
     constructor({ name, bookings, rate, discount }) {
       this.name = name;
@@ -38,7 +10,6 @@ class Room {
       this.bookings = bookings;
     }
   
-    // Returns an array of dates between start date and end date
     getDatesInRange(start, end) {
       let range = [];
       let startDate = start;
@@ -50,7 +21,6 @@ class Room {
       return range;
     }
   
-    // Is occupied if given date is between the booking check in and check out
     isOccupied(date) {
       for (let i = 0; i < this.bookings.length; i++) {
         if (
@@ -63,7 +33,6 @@ class Room {
       return false;
     }
   
-    // Checks for each date between the dates range if the current room is occupied. Then calculates the percentage
     occupancyPercentage(start, end) {
       const range = this.getDatesInRange(start, end);
       let occupiedDates = 0;
@@ -76,7 +45,6 @@ class Room {
       return totalPercentage;
     }
   
-    // Check which room is completely occupied in the dates range. Then calculates the percentage based on the total amount of bookings
     static totalOccupancyPercentage = (rooms, startDate, endDate) => {
       let bookingsBetweenRange = 0;
       let bookingsCount = 0;
