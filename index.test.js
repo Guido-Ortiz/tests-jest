@@ -1,5 +1,6 @@
 const { Room, Booking } = require("./index");
 
+
 describe('Room occupied or not', () => {
 
     test("NOT occupied", () => {
@@ -233,9 +234,7 @@ describe('OCCUPANCY PERCENTAGES', () => {
         });
         const Rooms = [room, roomTwo];
 
-        expect(
-            Room.availableRooms(Rooms, new Date("2022-12-11"), new Date("2022-12-16"))
-        ).toStrictEqual([roomTwo]);
+        expect(Room.availableRooms(Rooms, new Date("2022-12-11"), new Date("2022-12-16"))).toStrictEqual([roomTwo]);
     });
 
     test("No rooms are fully available between given dates", () => {
