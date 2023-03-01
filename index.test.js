@@ -238,43 +238,43 @@ describe('OCCUPANCY PERCENTAGES', () => {
     });
 
     test("No rooms are fully available between given dates", () => {
-        const bookingTemplateOne = new Booking({
-            name: "Test1",
-            email: "test1@gmail.com",
+        const bookingOne = new Booking({
+            name: "guido",
+            email: "guido@gmail.com",
             checkIn: new Date("2022-12-11"),
             checkOut: new Date("2022-12-11"),
             discount: 15,
         });
-        const bookingTemplateTwo = new Booking({
-            name: "Test2",
-            email: "test2@gmail.com",
+        const bookingTwo = new Booking({
+            name: "guido",
+            email: "guido@gmail.com",
             checkIn: new Date("2022-12-07"),
             checkOut: new Date("2022-12-14"),
             discount: 15,
         });
         const room = new Room({
             name: "Suite",
-            bookings: [bookingTemplateOne, bookingTemplateTwo],
+            bookings: [bookingOne, bookingTwo],
             rate: 6500,
             discount: 15,
         });
-        const bookingTemplateThree = new Booking({
-            name: "Test3",
-            email: "test3@gmail.com",
+        const bookingThree = new Booking({
+            name: "guido",
+            email: "guido@gmail.com",
             checkIn: new Date("2022-12-05"),
             checkOut: new Date("2022-12-06"),
             discount: 15,
         });
-        const bookingTemplateFour = new Booking({
-            name: "Test4",
-            email: "test4@gmail.com",
+        const bookingFour = new Booking({
+            name: "guido",
+            email: "guido@gmail.com",
             checkIn: new Date("2022-12-02"),
             checkOut: new Date("2022-12-12"),
             discount: 15,
         });
         const roomTwo = new Room({
             name: "Suite",
-            bookings: [bookingTemplateThree, bookingTemplateFour],
+            bookings: [bookingThree, bookingFour],
             rate: 6500,
             discount: 15,
         });
