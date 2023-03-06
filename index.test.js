@@ -1,8 +1,7 @@
+"use strict";
 const { Room, Booking } = require("./index");
 // import { Room, Booking } from './index';
-
 describe('Room occupied or not', () => {
-
     test("NOT occupied", () => {
         const bookingOne = new Booking({
             name: "Guido",
@@ -24,11 +23,9 @@ describe('Room occupied or not', () => {
             rate: 6500,
             discount: 15,
         });
-
         expect(room.isOccupied(new Date("2022-12-06"))).toBe(false);
         expect(room.isOccupied(new Date("2022-03-14"))).toBe(false);
     });
-
     test("IS occupied", () => {
         const bookingOne = new Booking({
             name: "Guido",
@@ -50,17 +47,13 @@ describe('Room occupied or not', () => {
             rate: 6500,
             discount: 15,
         });
-
         expect(room.isOccupied(new Date("2022-03-21"))).toBe(true);
         expect(room.isOccupied(new Date("2022-03-28"))).toBe(true);
         expect(room.isOccupied(new Date("2022-02-27"))).toBe(true);
         expect(room.isOccupied(new Date("2022-02-28"))).toBe(true);
     });
-})
-
-
+});
 describe('BOOKING FEES', () => {
-
     test('Get booking fee with no discount', () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -77,7 +70,6 @@ describe('BOOKING FEES', () => {
         });
         expect(bookingOne.getFee(room)).toBe(6500);
     });
-
     test('Get booking fee 15% off', () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -94,7 +86,6 @@ describe('BOOKING FEES', () => {
         });
         expect(bookingOne.getFee(room)).toBe(4696.25);
     });
-
     test('Get booking fee 20% off', () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -111,12 +102,8 @@ describe('BOOKING FEES', () => {
         });
         expect(bookingOne.getFee(room)).toBe(3800);
     });
-
-})
-
-
+});
 describe('OCCUPANCY PERCENTAGES', () => {
-
     test("Percentage occupancy 50%", () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -138,10 +125,8 @@ describe('OCCUPANCY PERCENTAGES', () => {
             rate: 6500,
             discount: 15,
         });
-
         expect(room.occupancyPercentage(new Date("2023-02-20"), new Date("2023-02-27"))).toBe(0);
     });
-
     test("Total occupancy percentage to be 75%", () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -163,7 +148,6 @@ describe('OCCUPANCY PERCENTAGES', () => {
             rate: 6500,
             discount: 15,
         });
-
         const bookingThree = new Booking({
             name: "guido",
             email: "guido@gmail.com",
@@ -185,10 +169,8 @@ describe('OCCUPANCY PERCENTAGES', () => {
             discount: 15,
         });
         const Rooms = [room, roomTwo];
-
         expect(Room.totalOccupancyPercentage(Rooms, new Date("2022-12-11"), new Date("2022-12-16"))).toBe(75);
     });
-
     test("RoomTwo is fully available between given dates", () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -231,10 +213,8 @@ describe('OCCUPANCY PERCENTAGES', () => {
             discount: 15,
         });
         const Rooms = [room, roomTwo];
-
         expect(Room.availableRooms(Rooms, new Date("2022-12-11"), new Date("2022-12-16"))).toStrictEqual([roomTwo]);
     });
-
     test("No rooms are fully available between given dates", () => {
         const bookingOne = new Booking({
             name: "guido",
@@ -277,7 +257,6 @@ describe('OCCUPANCY PERCENTAGES', () => {
             discount: 15,
         });
         const Rooms = [room, roomTwo];
-
         expect(Room.availableRooms(Rooms, new Date("2022-12-11"), new Date("2022-12-16"))).toStrictEqual([]);
     });
-})
+});
