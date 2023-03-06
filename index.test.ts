@@ -1,4 +1,5 @@
 const { Room, Booking } = require("./index");
+// import { Room, Booking } from './index';
 
 
 describe('Room occupied or not', () => {
